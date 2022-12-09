@@ -1,7 +1,9 @@
 HELP.md
 
 #sprcial commit
-.log/
+/log/
+/memory_persist/
+
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/

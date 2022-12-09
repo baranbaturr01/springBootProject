@@ -23,3 +23,31 @@
 docker run -p 8080:8080 -t spring-boot-project
 ```
 
+* [H2 console](http://localhost:8081/h2-console/l)
+* [Swagger](http://localhost:8081/swagger-ui.html)
+
+```shell
+1.Adım
+$ ./mvnw clean package -DskipTests
+
+2.Adım
+$ dcoker-compose up
+$ docker ps
+
+3.Adım
+POSTMAN
+//Ekleme
+http://localhost:8081/api/v1/create/product
+
+//Listele
+http://localhost:8081/api/v1/list/product
+
+//Find
+http://localhost:8081/api/v1/find/product/1
+
+//Delete
+http://localhost:8081/api/v1/delete/product/1
+
+4.Adım
+$  docker exec -it spring_docker_postgresqldb_1 psql -U postgres postgres
+```
