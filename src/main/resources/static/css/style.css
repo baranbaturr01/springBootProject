@@ -1,0 +1,9 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+}
+
+.thymeleaf1 {
+    color: #ff0000;
+    background-color: red;
+}
