@@ -24,7 +24,6 @@ public class EmployeeServiceImpl implements EmployeeServices {
     /**
      * Model Mapper
      */
-    @Autowired
     private ModelMapper modelMapper;
 
     //    List
