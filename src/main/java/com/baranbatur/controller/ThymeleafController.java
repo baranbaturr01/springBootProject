@@ -25,4 +25,12 @@ public class ThymeleafController {
         return "thymeleaf1"; //eğer templates altında başka bir klasör içerisindeki başka bir html sayfasına gitmek istiyorsak oradaki html sayfasının adını yazmamız yeterlidir(klasör_adı/html_sayfası). Ex. return "thymeleaf2/thymeleaf2";
     }
 
+
+    @GetMapping("/thymeleaf3")
+
+    public String getThymeleaf3ModelObject(Model model) {
+
+        model.addAttribute("key_model", "Ben modelden geldim");//bu değer html sayfasına gönderilir orada yakalamk için key kullanılır
+        return "thymeleaf3";
+    }
 }
