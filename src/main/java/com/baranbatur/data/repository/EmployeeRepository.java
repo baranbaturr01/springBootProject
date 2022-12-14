@@ -1,6 +1,6 @@
-package com.baranbatur.repository;
+package com.baranbatur.data.repository;
 
-import com.baranbatur.entity.EmployeeEntity;
+import com.baranbatur.data.entity.EmployeeEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

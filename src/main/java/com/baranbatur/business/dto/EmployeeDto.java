@@ -1,4 +1,4 @@
-package com.baranbatur.dto;
+package com.baranbatur.business.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

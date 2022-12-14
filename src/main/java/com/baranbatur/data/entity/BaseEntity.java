@@ -1,4 +1,4 @@
-package com.baranbatur.entity;
+package com.baranbatur.data.entity;
 
 import lombok.Getter;
 import lombok.Setter;

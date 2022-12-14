@@ -1,6 +1,6 @@
 package com.baranbatur.bean;
 
-import com.baranbatur.dto.BeanDto;
+import com.baranbatur.business.dto.BeanDto;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;

@@ -1,6 +1,5 @@
-package com.baranbatur.entity;
+package com.baranbatur.data.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
