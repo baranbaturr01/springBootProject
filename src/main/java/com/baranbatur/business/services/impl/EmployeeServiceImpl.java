@@ -4,6 +4,7 @@ import com.baranbatur.business.dto.EmployeeDto;
 import com.baranbatur.business.services.EmployeeServices;
 import com.baranbatur.data.entity.EmployeeEntity;
 import com.baranbatur.data.repository.EmployeeRepository;
+import com.baranbatur.exception.ResourceNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -45,7 +46,6 @@ public class EmployeeServiceImpl implements EmployeeServices {
     @Override
     @PostMapping("/employees")
     public EmployeeDto saveEmployee(@RequestBody EmployeeDto employeeDto) {
-        System.out.println("saveEmployee" + employeeDto);
         EmployeeEntity employeeEntity = dtoToEntity(employeeDto);
         employeeRepository.save(employeeEntity);
         return employeeDto;
@@ -56,7 +56,7 @@ public class EmployeeServiceImpl implements EmployeeServices {
     @Override
     @GetMapping("/employees/{id}")
     public ResponseEntity<EmployeeDto> getEmployeeById(@PathVariable Long id) {
-        EmployeeEntity employeeEntity = employeeRepository.findById(id).get();
+        EmployeeEntity employeeEntity = employeeRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Employee not exist with id : " + id));
         EmployeeDto employeeDto = entityToDto(employeeEntity);
         return ResponseEntity.ok(employeeDto);
     }
@@ -102,7 +102,6 @@ public class EmployeeServiceImpl implements EmployeeServices {
     @Override
 //    DTO to Entity
     public EmployeeEntity dtoToEntity(EmployeeDto employeeDto) {
-        System.out.println("dtoToEntity" + employeeDto);
         return modelMapper.map(employeeDto, EmployeeEntity.class);
     }
 }
