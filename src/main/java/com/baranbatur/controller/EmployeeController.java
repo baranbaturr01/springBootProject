@@ -32,6 +32,7 @@ public class EmployeeController {
     //SAVE
     @PostMapping("/employees")
     public EmployeeDto saveEmployee(@RequestBody EmployeeDto employeeDto) {
+        System.out.println("saveEmployee Contorller " + employeeDto);
         return employeeServices.saveEmployee(employeeDto);
     }
 

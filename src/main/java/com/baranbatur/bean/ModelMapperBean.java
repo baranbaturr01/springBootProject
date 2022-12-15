@@ -1,5 +1,6 @@
 package com.baranbatur.bean;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -7,8 +8,8 @@ import org.springframework.context.annotation.Configuration;
 public class ModelMapperBean {
 
     @Bean
-    public ModelMapperBean ModelMapperBean() {
+    public ModelMapper ModelMapperBean() {
 
-        return new ModelMapperBean();
+        return new ModelMapper();
     }
 }

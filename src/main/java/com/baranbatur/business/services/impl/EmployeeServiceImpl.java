@@ -21,9 +21,7 @@ public class EmployeeServiceImpl implements EmployeeServices {
     @Autowired
     private EmployeeRepository employeeRepository;
 
-    /**
-     * Model Mapper
-     */
+    @Autowired
     private ModelMapper modelMapper;
 
     //    List
@@ -47,7 +45,7 @@ public class EmployeeServiceImpl implements EmployeeServices {
     @Override
     @PostMapping("/employees")
     public EmployeeDto saveEmployee(@RequestBody EmployeeDto employeeDto) {
-
+        System.out.println("saveEmployee" + employeeDto);
         EmployeeEntity employeeEntity = dtoToEntity(employeeDto);
         employeeRepository.save(employeeEntity);
         return employeeDto;
@@ -98,15 +96,13 @@ public class EmployeeServiceImpl implements EmployeeServices {
 //    Entity to DTO
     public EmployeeDto entityToDto(EmployeeEntity employeeEntity) {
 
-        EmployeeDto employeeDto = modelMapper.map(employeeEntity, EmployeeDto.class);
-        return employeeDto;
+        return modelMapper.map(employeeEntity, EmployeeDto.class);
     }
 
     @Override
 //    DTO to Entity
     public EmployeeEntity dtoToEntity(EmployeeDto employeeDto) {
-
-        EmployeeEntity employeeEntity = modelMapper.map(employeeDto, EmployeeEntity.class);
-        return employeeEntity;
+        System.out.println("dtoToEntity" + employeeDto);
+        return modelMapper.map(employeeDto, EmployeeEntity.class);
     }
 }
