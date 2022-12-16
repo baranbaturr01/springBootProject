@@ -1,5 +1,6 @@
 package com.baranbatur.business.services.impl;
 
+import com.baranbatur.business.dto.UserDto;
 import com.baranbatur.data.entity.UserEntity;
 import com.baranbatur.data.repository.UserRepository;
 import lombok.extern.log4j.Log4j2;
@@ -25,7 +26,7 @@ public class JwtUserDetailService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
         //database de kullanıcı varlıgının kontrol ediyor
-        UserEntity user = (UserEntity) userRepository.findByUsername(username);
+        UserEntity user = userRepository.findByUsername(username);
         if (user == null) {
             log.error("User not found with username: {}", username);
             throw new UsernameNotFoundException("User not found with username: " + username);
@@ -35,9 +36,10 @@ public class JwtUserDetailService implements UserDetailsService {
 
     //Database e username ve password ü setliyoruz
     //password maskelenmiş olarak kaydediliyor
-    public UserEntity save(UserEntity user) {
-        user.setUsername(user.getUsername());
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        return userRepository.save(user);
+    public UserEntity save(UserDto user) {
+        UserEntity newUser = new UserEntity();
+        newUser.setUsername(user.getUsername());
+        newUser.setPassword(passwordEncoder.encode(user.getPassword()));
+        return userRepository.save(newUser);
     }
 }
