@@ -7,6 +7,8 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -21,9 +23,9 @@ public class UserEntity extends BaseEntity {
     @JsonIgnore
     private String password;
 
-
     @Column(name = "System_auto_date", nullable = false)
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     @CreationTimestamp
     private Date date;
+
 }
